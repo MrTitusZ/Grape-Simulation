@@ -410,10 +410,10 @@ MonoBehaviour:
   - {fileID: 2781644220969338896, guid: 3ab185ec8d303314aa138ae31c3445b4, type: 3}
   tokekSzama: 10
   sorokSzama: 4
-  sorokKozottiTabolsag: 2.5
+  sorokKozottiFixTavolsag: 2
+  sorokKozottiRandomTavolsag: 0.5
   tokekKozottiTavolsag: 1.5
-  tokekKozottRandomMinTavolsag: 0
-  tokekKozottRandomMaxTavolsag: 0.5
+  tokekKozottiRandomTavolsag: 0.5
   tokeRandomYRotationFokban: 15
 --- !u!4 &1443203302
 Transform:
