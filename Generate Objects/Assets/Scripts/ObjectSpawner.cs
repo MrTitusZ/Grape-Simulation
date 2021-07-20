@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour
 {
+    [Header("Tõke Beállítások")]
     [SerializeField] GameObject[] tokek;
     [SerializeField] int tokekSzama = 0;
     [SerializeField] int sorokSzama = 1;
-    [SerializeField] float sorokKozottiTabolsag = 2f;
+
+    [Header("")]
+    [SerializeField] float sorokKozottiFixTavolsag = 2f;
+    [SerializeField] float sorokKozottiRandomTavolsag = 0.5f;
     [SerializeField] float tokekKozottiTavolsag = 2f;
-    [SerializeField] float tokekKozottRandomMinTavolsag = 0.2f;
-    [SerializeField] float tokekKozottRandomMaxTavolsag = 0.5f;
+    [SerializeField] float tokekKozottiRandomTavolsag = 0.5f;
     [SerializeField] float tokeRandomYRotationFokban = 30f;
 
     float zCord = 1;
-    float randomTavolsag;
+    float tokeRandomTavolsag;
     int tokeRandomIndex;
     float tokeRandomRotation;
 
@@ -31,10 +34,11 @@ public class ObjectSpawner : MonoBehaviour
             {
                 tokeRandomIndex = Random.Range(0, tokek.Length);
                 tokeRandomRotation = Random.Range(-tokeRandomYRotationFokban, tokeRandomYRotationFokban);
-                Instantiate(tokek[tokeRandomIndex], new Vector3(1 + j * sorokKozottiTabolsag, 0, zCord), Quaternion.Euler(0, tokeRandomRotation, 0));
-                randomTavolsag = Random.Range(tokekKozottRandomMinTavolsag, tokekKozottRandomMaxTavolsag);
-                zCord += tokekKozottiTavolsag + randomTavolsag;
-                Debug.Log(tokeRandomYRotationFokban);
+                sorokKozottiRandomTavolsag = Random.Range(0, sorokKozottiRandomTavolsag);
+                Vector3 grapePosition = new Vector3(1 + j * sorokKozottiFixTavolsag, 0f, zCord);
+                Instantiate(tokek[tokeRandomIndex], grapePosition, Quaternion.Euler(0f, tokeRandomRotation, 0f));
+                tokeRandomTavolsag = Random.Range(0, tokekKozottiRandomTavolsag);
+                zCord += tokekKozottiTavolsag + tokeRandomTavolsag;
             }
             zCord = 1;
         }
