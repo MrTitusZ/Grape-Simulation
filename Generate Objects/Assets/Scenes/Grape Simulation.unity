@@ -407,7 +407,7 @@ MonoBehaviour:
   tokek:
   - {fileID: 5664142503100025052, guid: c065d7f06db040f4aa356ea5b0e56bce, type: 3}
   tokekSzama: 10
-  sorokSzama: 4
+  sorokSzama: 6
   sorokKozottiTabolsag: 2.5
   tokekKozottiTavolsag: 1.5
   tokekKozottRandomMinTavolsag: 0
