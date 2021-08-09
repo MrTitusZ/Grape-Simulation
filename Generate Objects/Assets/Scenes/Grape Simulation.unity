@@ -414,12 +414,12 @@ MonoBehaviour:
   tokekKozottiRandomTavolsag: 0.3
   tokeRandomRotationFokban: 10
   tokeSorokSzama: 5
-  tokeSorokKozottiTavolsag: 3
-  oszlopokSzama: 10
-  "oszlopokK\xF6z\xF6ttiTavolsag": 4
+  tokeSorokKozottiTavolsag: 3.5
+  oszlopokSzama: 6
+  "oszlopokK\xF6z\xF6ttiTavolsag": 7
   oszlopSorokSzama: 5
-  oszlopSorokKozottiTavolsag: 3
-  lineColor: {r: 0, g: 0, b: 0, a: 255}
+  oszlopSorokKozottiTavolsag: 3.5
+  drotSzin: {r: 0, g: 0, b: 0, a: 255}
 --- !u!4 &1443203302
 Transform:
   m_ObjectHideFlags: 0

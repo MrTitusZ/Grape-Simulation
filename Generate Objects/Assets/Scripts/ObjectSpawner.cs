@@ -22,7 +22,7 @@ public class ObjectSpawner : MonoBehaviour
     [SerializeField] float oszlopSorokKozottiTavolsag = 2;
 
     [Header("Drótmezõ Beállítások")]
-    [SerializeField] Color lineColor = new Color(1, 1, 1, 255);
+    [SerializeField] Color drotSzin = new Color(1, 1, 1, 255);
 
     // Listában eltárolom a futáskor példányosított oszlopokat GameObject-ként
     List<GameObject> oszlopok = new List<GameObject>();
@@ -35,12 +35,23 @@ public class ObjectSpawner : MonoBehaviour
 
     void Start()
     {
-        GenerateGrapeField();
+        SzolomezoGeneralas();
     }
 
-    void GenerateGrapeField()
+    void SzolomezoGeneralas()
     {
         // Tõkék példányosítása
+        TokeGeneralas();
+
+        // Oszlopok példányosítása
+        OszlopGeneralas();
+
+        // Drótmezõ kialakítása a példányosított oszlopokhoz
+        DrotGeneralas();
+    }
+
+    private void TokeGeneralas()
+    {
         for (int sorCounter = 0; sorCounter < tokeSorokSzama; sorCounter++)
         {
             for (int tokeCounter = 0; tokeCounter < tokekSzama; tokeCounter++)
@@ -55,8 +66,10 @@ public class ObjectSpawner : MonoBehaviour
                 Instantiate(tokek[randomTokeModell], tokePosition, Quaternion.Euler(0, randomTokeRotation, 0));
             }
         }
+    }
 
-        // Oszlopok példányosítása
+    private void OszlopGeneralas()
+    {
         for (int sorCounter = 0; sorCounter < oszlopSorokSzama; sorCounter++)
         {
             for (int oszlopCounter = 0; oszlopCounter < oszlopokSzama; oszlopCounter++)
@@ -68,11 +81,13 @@ public class ObjectSpawner : MonoBehaviour
                 oszlopok.Add(Instantiate(oszlop, oszlopPosition, Quaternion.Euler(-90, 0, 0)) as GameObject);
             }
         }
+    }
 
-        // Drótmezõ kialakítása a példányosított oszlopokhoz
-        for(int sorCounter = 0; sorCounter < oszlopSorokSzama; sorCounter++)
+    private void DrotGeneralas()
+    {
+        for (int sorCounter = 0; sorCounter < oszlopSorokSzama; sorCounter++)
         {
-            for(int pointCounter = 0; pointCounter < 3; pointCounter++)
+            for (int pointCounter = 0; pointCounter < 3; pointCounter++)
             {
                 GameObject lineRendererGameObject = new GameObject();
                 lineRendererGameObject.AddComponent<LineRenderer>();
@@ -80,9 +95,9 @@ public class ObjectSpawner : MonoBehaviour
                 lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
                 lineRenderer.widthMultiplier = 0.01f;
                 lineRenderer.positionCount = oszlopokSzama;
-                lineRenderer.startColor = lineColor;
-                lineRenderer.endColor = lineColor;
-                for(int oszlopCounter = 0; oszlopCounter < oszlopokSzama; oszlopCounter++)
+                lineRenderer.startColor = drotSzin;
+                lineRenderer.endColor = drotSzin;
+                for (int oszlopCounter = 0; oszlopCounter < oszlopokSzama; oszlopCounter++)
                 {
                     lineRenderer.SetPosition(oszlopCounter, oszlopok[sorCounter * oszlopokSzama + oszlopCounter].transform.GetChild(pointCounter).position);
                 }
