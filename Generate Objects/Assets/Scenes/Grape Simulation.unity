@@ -408,7 +408,7 @@ MonoBehaviour:
   - {fileID: 5664142503100025052, guid: c065d7f06db040f4aa356ea5b0e56bce, type: 3}
   - {fileID: 1578386199102864268, guid: 635cfbda9f32edf4da01666a44dc1438, type: 3}
   - {fileID: 2781644220969338896, guid: 3ab185ec8d303314aa138ae31c3445b4, type: 3}
-  oszlop: {fileID: 1045758126385248514, guid: 33902274d79dd114682080ba12e921b4, type: 3}
+  oszlop: {fileID: 5410698818998148165, guid: e483fe872a2679840b1a983c0d30c9a9, type: 3}
   tokekSzama: 15
   tokekKozottiTavolsag: 2.5
   tokekKozottiRandomTavolsag: 0.3
@@ -419,6 +419,7 @@ MonoBehaviour:
   "oszlopokK\xF6z\xF6ttiTavolsag": 7
   oszlopSorokSzama: 5
   oszlopSorokKozottiTavolsag: 3.5
+  drotVastagsag: 0.01
   drotSzin: {r: 0, g: 0, b: 0, a: 255}
 --- !u!4 &1443203302
 Transform:
